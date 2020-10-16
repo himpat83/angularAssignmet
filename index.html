@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+
+
+    <div ng-app="myApp" ng-controller="namesCtrl" style="padding-left: 1%;  padding-right: 1%;">
+
+        <nav class=" navbar navbar-expand-sm bg-info navbar-light ">
+            <form class="form-inline ">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" ng-model="inputtext " placeholder="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" ng-click="clearInput()" type="button">X</button>
+                        <button class="btn btn-dark " ng-click="searchText = inputtext" type="submit">Search</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </nav>
+        <br>
+
+        <div class="row ">
+            <div class="col-sm-3 " ng-repeat="x in myData | filter:searchText">
+                <div class="card " style="margin-top: 2%;margin-bottom: 2%; ">
+                    <div class="card " style="margin-left: 10%;margin-right: 10%; margin-top: 5%;margin-bottom: 5%; float: left; " ng-style="{ 'border-color' : x.gender=='M' ? 'blue': 'red'} ">
+                        <div style="font-size:large; font-weight: bold;">Name :{{x.name}} </div>
+                        <div>Gender:{{x.gender}} </div>
+                        <div style="font-size: x-small;">Email :{{x.email}} </div>
+                        <div>City :{{x.city}} </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./AgSearchFilter.js ">
+    </script>
+
+
+
+</body>
+
+</html>
